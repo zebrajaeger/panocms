@@ -1,0 +1,37 @@
+{
+  "jquery": {
+    "js": {
+      "src": ["dist/jquery.js"],
+      "min": ["dist/jquery.min.js"]
+    }
+  },
+  "vimeo-player-js": {
+    "js": {
+      "src": ["dist/player.js"],
+      "min": ["dist/player.min.js"]
+    }
+  },
+  "jquery.scrollTo": {
+    "js": {
+      "src": ["jquery.scrollTo.js"],
+      "min": ["jquery.scrollTo.min.js"]
+    }
+  },
+  "matchHeight": {
+    "js": {
+      "src": ["dist/jquery.matchHeight.js"],
+      "min": ["dist/jquery.matchHeight-min.js"]
+    }
+  },
+  "flexslider": {
+    "js": {
+      "src": ["jquery.flexslider.js"],
+      "min": ["jquery.flexslider-min.js"]
+    }
+  },
+  "sanitize-css": {
+    "css": {
+      "src": ["sanitize.css"]
+    }
+  }
+}

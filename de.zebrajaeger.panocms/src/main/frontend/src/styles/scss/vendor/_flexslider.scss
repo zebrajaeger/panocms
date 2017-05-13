@@ -1,0 +1,73 @@
+.flexslider {
+  margin: 0;
+  padding: 0;
+
+  .slides {
+    .slide {
+      backface-visibility: hidden;
+      display: none;
+
+      .no-js &:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+.flex {
+  &-viewport {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &-control-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-control-paging {
+    bottom: 0;
+    opacity: 1;
+    padding: 10px 0;
+    position: absolute;
+    text-align: center;
+    transition: opacity .3s ease, z-index .3s ease;
+    width: 100%;
+    z-index: 30;
+
+    @include breakpoint(get-breakpoint('desktop', 'min', $named-breakpoints)) {
+      padding: 20px 0;
+    }
+
+    &.fade-out {
+      opacity: 0;
+      z-index: -1;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 5px;
+
+      a {
+        background-color: rgba($gainsboro, .64);
+        border-radius: 100%;
+        cursor: pointer;
+        display: block;
+        height: 18px;
+        text-indent: -9999px;
+        transition: background-color .3s ease;
+        width: 18px;
+
+        &:hover {
+          background-color: $silver;
+        }
+      }
+
+      .flex-active {
+        background-color: $silver;
+      }
+    }
+  }
+}

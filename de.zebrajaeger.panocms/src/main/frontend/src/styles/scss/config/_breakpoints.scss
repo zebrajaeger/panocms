@@ -1,0 +1,40 @@
+$breakpoints: (
+  'xs': (
+    'min': 0,
+    'max': 575px,
+    'gutter': 30px
+  ), // xtra-small
+  'sm': (
+    'min': 576px,
+    'max': 767px,
+    'gutter': 30px
+  ), // small
+  'md': (
+    'min': 768px,
+    'max': 991px,
+    'gutter': 30px
+  ), // medium
+  'lg': (
+    'min': 992px,
+    'max': 1199px,
+    'gutter': 30px
+  ), // large
+  'xl': (
+    'min': 1200px,
+    'gutter': 30px
+  )  // xtra-large
+);
+
+$named-breakpoints: (
+  'mobile': (
+    'min': 0,
+    'max': 767px
+  ),
+  'tablet': (
+    'min': 768px,
+    'max': 1024px
+  ),
+  'desktop': (
+    'min': 1025px
+  )
+);

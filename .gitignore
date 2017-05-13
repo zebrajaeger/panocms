@@ -1,0 +1,30 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+*.ipr
+
+#JRebel
+rebel.xml
+rebel-remote.xml
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+manifest.xml
+DEV-*.properties
+local.properties
+
+# Local Frontend Development
+de.zebrajaeger.panocms/src/main/frontend/env/
+de.zebrajaeger.panocms/node_modules/
+de.zebrajaeger.panocms/src/main/frontend/.tmp/
+de.zebrajaeger.panocms/src/main/frontend/node_modules/

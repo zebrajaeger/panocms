@@ -1,0 +1,7 @@
+.DS_Store
+scss-lint-report.xml
+node_modules/*
+.tmp/*
+.sass-cache/*
+src/vendor/bower/*
+

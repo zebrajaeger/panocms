@@ -1,0 +1,18 @@
+<fileinfo>
+    <file>
+        <source>${source}</source>
+        <destination>${destination}</destination>
+        <type>module_config</type>
+        <uuidstructure>4668b2a9-bc9e-11e6-9632-8cdcd4d49146</uuidstructure>
+        <uuidresource>4668b2aa-bc9e-11e6-9632-8cdcd4d49146</uuidresource>
+        <datelastmodified>${datelastmodified}</datelastmodified>
+        <userlastmodified>Admin</userlastmodified>
+        <datecreated>${datecreated}</datecreated>
+        <usercreated>Admin</usercreated>
+        <flags>0</flags>
+        <properties/>
+        <relations/>
+        <accesscontrol/>
+    </file>
+    <siblingcount>1</siblingcount>
+</fileinfo>

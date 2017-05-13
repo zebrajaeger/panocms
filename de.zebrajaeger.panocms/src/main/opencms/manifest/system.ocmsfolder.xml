@@ -1,0 +1,22 @@
+<file>
+    <destination>${destination}</destination>
+    <type>folder</type>
+    <uuidstructure>23690aa5-476e-11e6-9fb4-015e3b9c78bd</uuidstructure>
+    <datelastmodified>${datelastmodified}</datelastmodified>
+    <userlastmodified>Admin</userlastmodified>
+    <datecreated>${datecreated}</datecreated>
+    <usercreated>Admin</usercreated>
+    <flags>0</flags>
+    <properties/>
+    <relations/>
+    <accesscontrol>
+        <accessentry>
+            <uuidprincipal>ROLE.WORKPLACE_USER</uuidprincipal>
+            <flags>514</flags>
+            <permissionset>
+                <allowed>1</allowed>
+                <denied>0</denied>
+            </permissionset>
+        </accessentry>
+    </accesscontrol>
+</file>

@@ -1,0 +1,50 @@
+{
+  "name": "Panocms",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "",
+  "author": {
+    "name": "Florian Ludwig",
+    "email": "flo@codeunit.io",
+    "url": "codeunit.io"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "bower": "latest",
+    "breakpoint-sass": "latest",
+    "browser-sync": "latest",
+    "del": "latest",
+    "eslint": "latest",
+    "event-stream": "latest",
+    "file-exists": "latest",
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssnano": "latest",
+    "gulp-debug": "latest",
+    "gulp-environments": "latest",
+    "gulp-eslint": "latest",
+    "gulp-extname": "latest",
+    "gulp-filter": "latest",
+    "gulp-front-matter": "latest",
+    "gulp-hb": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-order": "latest",
+    "gulp-postcss": "latest",
+    "gulp-prettify": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest",
+    "gulp-sass-glob-2": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-stylelint": "latest",
+    "gulp-uglify": "latest",
+    "handlebars-helpers": "latest",
+    "handlebars-layouts": "latest",
+    "run-sequence": "latest",
+    "underscore": "latest"
+  }
+}

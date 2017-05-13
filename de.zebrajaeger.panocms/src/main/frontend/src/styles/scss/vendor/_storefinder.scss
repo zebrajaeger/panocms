@@ -1,0 +1,32 @@
+#store-finder-widget {
+  /* stylelint-disable selector-class-pattern */
+  div {
+    font-family: 'FF Clan', Helvetica, Arial, sans-serif !important;
+  }
+
+  .ubsf_store-finder-wrapper {
+    margin-top: 0 !important;
+  }
+
+  .ubsf_storefinder-search-box,
+  .ubsf_store-finder-search-column {
+    border-radius: 0 !important;
+  }
+
+  .ubsf_store-finder-search-column {
+    @media screen and (min-width: 768px) {
+      padding-right: 24px !important;
+    }
+  }
+
+  .ubsf_storefinder-search-box,
+  .ubsf_load-more-locations-box,
+  .ubsf_filter-box {
+    background: none !important;
+  }
+
+  #ubsf_store-finder-map {
+    background: $white-approx !important;
+    border-radius: 0 !important;
+  }
+}

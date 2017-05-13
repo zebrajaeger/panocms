@@ -1,0 +1,19 @@
+@each $breakpoint, $values in $breakpoints {
+  @include breakpoint(get-breakpoint($breakpoint)) {
+    @each $direction in left, center, right {
+      .ta-#{$direction}-#{$breakpoint} {
+        text-align: $direction;
+      }
+    }
+  }
+}
+
+@each $breakpoint, $values in $breakpoints {
+  @include breakpoint(get-breakpoint($breakpoint), 'only') {
+    .va-center-#{$breakpoint} {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

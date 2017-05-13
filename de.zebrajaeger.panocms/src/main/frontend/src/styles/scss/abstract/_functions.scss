@@ -1,0 +1,93 @@
+/*
+ *  Returns values for breakpoint()
+ *
+ *  @param string $key
+ *  @param string $mode
+ **/
+@function get-breakpoint($key, $mode: 'min', $breakpoints: $breakpoints) {
+  $return: null;
+  @if map-has-key($breakpoints, $key) {
+    $breakpoint: map-get($breakpoints, $key);
+    @if ($mode == 'min') {
+      @if map-has-key($breakpoint, 'min') {
+        $return: min-width map-get($breakpoint, 'min');
+      } @else {
+        @error 'A value with name `#{$mode}` isn\'t defined for breakpoint `#{$key}`!';
+      }
+    } @else if ($mode == 'max') {
+      @if map-has-key($breakpoint, 'max') {
+        $return: max-width map-get($breakpoint, 'max');
+      } @else {
+        @error 'A value with name `#{$mode}` isn\'t defined for breakpoint `#{$key}`!';
+      }
+    } @else if ($mode == 'only') {
+      @if map-has-key($breakpoint, 'min') and map-has-key($breakpoint, 'max') {
+        $return: min-width map-get($breakpoint, 'min') max-width map-get($breakpoint, 'max');
+      } @else if map-has-key($breakpoint, 'min') {
+        @warn 'No maximum value defined for breakpoint `#{$key}`! Used minimum instead!';
+        $return: min-width get-breakpoint($key, 'min');
+      } @else if map-has-key($breakpoint, 'max') {
+        @warn 'No minimum value defined for breakpoint `#{$key}`! Used maximum instead!';
+        $return: max-width get-breakpoint($key, 'max');
+      }
+    }
+  } @else {
+    @error 'A breakpoint with name `#{$key}` doesn\'t exist!';
+  }
+  @return $return;
+}
+
+/*
+ *  Returns values for breakpoint()
+ *
+ *  @param string $key-min
+ *  @param string $key-max
+ **/
+@function get-breakpoint-between($key-min, $key-max, $breakpoints: $breakpoints) {
+  @if map-has-key($breakpoints, $key-min) and map-has-key($breakpoints, $key-max) {
+    $breakpoint-min: map-get($breakpoints, $key-min);
+    $breakpoint-max: map-get($breakpoints, $key-max);
+
+    @if map-has-key($breakpoint-min, 'min') and map-has-key($breakpoint-max, 'max') {
+      @return map-get($breakpoint-min, 'min') map-get($breakpoint-max, 'max');
+    } @else {
+      @error 'An error occured. Please check the given breakpoints!';
+    }
+  } @else {
+    @error 'An error occured. Please check the given breakpoints!';
+  }
+  @return null;
+}
+
+
+/*
+ *  Returns the z-index by key
+ *
+ *  @param string $key
+ **/
+@function z($key) {
+  @if map-has-key($z-index, $key) {
+    @return map-get($z-index, $key);
+  }
+}
+
+
+/*
+ *  Return the color from a color map
+ *
+ *  @param map $map
+ *  @param string $colorset
+ *  @param string $state
+ *  @param string $color
+ **/
+@function get-color($map, $colorset, $state, $color) {
+  @if map-has-key($map, $colorset) {
+    $states: map-get($map, $colorset);
+    @if map-has-key($states, $state) {
+      $colors: map-get($states, $state);
+      @if map-has-key($colors, $color) {
+        @return map-get($colors, $color);
+      }
+    }
+  }
+}

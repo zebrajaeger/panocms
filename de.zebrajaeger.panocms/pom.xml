@@ -1,0 +1,264 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.zebrajaeger</groupId>
+        <artifactId>panocms-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>de.zebrajaeger</groupId>
+    <artifactId>panocms-module</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>Panocms module</name>
+
+    <properties>
+        <project.parent.basedir>..</project.parent.basedir>
+        <project.build.sourceFrontend>${project.basedir}/src/main/frontend</project.build.sourceFrontend>
+        <project.build.distFrontend>${project.build.directory}/dist</project.build.distFrontend>
+        <project.build.buildFrontend>${project.build.directory}/frontend</project.build.buildFrontend>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>de.silpion.opencms.maven.plugins</groupId>
+                    <artifactId>opencms-maven-plugin</artifactId>
+                    <extensions>true</extensions>
+                    <version>${version.opencms-maven-plugin}</version>
+                    <configuration>
+                        <moduleName>${project.artifactId}</moduleName>
+                        <manifestMetaDir>${project.basedir}/src/main/opencms/manifest</manifestMetaDir>
+                        <vfsRoot>${project.basedir}/src/main/opencms/vfs</vfsRoot>
+                        <replaceMetaVariables>true</replaceMetaVariables>
+                        <addDependencies>true</addDependencies>
+                        <addClasses>false</addClasses>
+                        <failOnMissingResource>true</failOnMissingResource>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <executions>
+                        <execution>
+                            <id>.tmp</id>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                            <phase>clean</phase>
+                            <configuration>
+                                <filesets>
+                                    <fileset>
+                                        <directory>${project.build.sourceFrontend}/.tmp</directory>
+                                        <followSymlinks>false</followSymlinks>
+                                    </fileset>
+                                </filesets>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>manifest</id>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                            <phase>clean</phase>
+                            <configuration>
+                                <filesets>
+                                    <fileset>
+                                        <directory>${project.basedir}</directory>
+                                        <includes>
+                                            <include>**/.DS_Store</include>
+                                            <include>src/main/opencms/manifest/manifest.xml</include>
+                                        </includes>
+                                        <followSymlinks>false</followSymlinks>
+                                    </fileset>
+                                </filesets>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- used to install dependencies in local tomcat -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>install-dependencies</id>
+                            <phase>install</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <excludeTransitive>false</excludeTransitive>
+                                <includeScope>runtime</includeScope>
+                                <outputDirectory>${opencms.webapp.home}/WEB-INF/lib</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- install module zip -->
+                <plugin>
+                    <groupId>de.silpion.opencms.maven.plugins</groupId>
+                    <artifactId>cmsshell-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>install-module</id>
+                            <goals>
+                                <goal>replaceModule</goal>
+                            </goals>
+                            <configuration>
+                                <artifacts>
+                                    <artifact>
+                                        <groupId>${project.groupId}</groupId>
+                                        <artifactId>${project.artifactId}</artifactId>
+                                        <version>${project.version}</version>
+                                        <type>zip</type>
+                                    </artifact>
+                                </artifacts>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <!-- Clean removes manifest.xml and git.propertis -->
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>groovy-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- Frontend install tasks -->
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>npm install grunt bower</id>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>bower install</id>
+                        <phase>generate-resources</phase>
+                    </execution>
+
+                    <!-- Frontend develop files -->
+                    <execution>
+                        <id>grunt:build:development</id>
+                        <phase>generate-resources</phase>
+                    </execution>
+
+                    <!-- Frontend live files -->
+                    <execution>
+                        <id>grunt:build:production</id>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy frontend to target 1</id>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>copy frontend to target 2</id>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>de.silpion.opencms.maven.plugins</groupId>
+                <artifactId>opencms-maven-plugin</artifactId>
+
+                <configuration>
+                    <srcResources>
+                        <resource>
+                            <directory>${project.build.directory}/frontend/css</directory>
+                            <targetPath>system/modules/${modulename}/resources/css</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.build.directory}/frontend/js</directory>
+                            <targetPath>system/modules/${modulename}/resources/js</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.build.sourceFrontend}/src/assets/fonts</directory>
+                            <targetPath>system/modules/${modulename}/resources/fonts</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.build.sourceFrontend}/src/assets/images</directory>
+                            <targetPath>system/modules/${modulename}/resources/images</targetPath>
+                        </resource>
+                    </srcResources>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.opencms</groupId>
+            <artifactId>opencms-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.opencms</groupId>
+            <artifactId>opencms-gwt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cryptix-jce</groupId>
+            <artifactId>cryptix-jce-provider</artifactId>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>develop</id>
+
+            <dependencies>
+                <dependency>
+                    <groupId>de.zebrajaeger</groupId>
+                    <artifactId>panocms-module</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>de.silpion.opencms.maven.plugins</groupId>
+                        <artifactId>cmsshell-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

@@ -1,0 +1,28 @@
+{
+  "name": "Panocms",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Florian Ludwig",
+      "email": "flo@codeunit.io",
+      "homepage": "http://codeunit.io"
+    }
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/vendor",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sanitize-css": "latest",
+    "jquery": "latest",
+    "flexslider": "latest",
+    "jquery.scrollTo": "latest",
+    "matchHeight": "latest",
+    "vimeo-player-js": "^2.0.1"
+  }
+}
