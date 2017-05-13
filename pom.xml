@@ -118,47 +118,6 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <!--
-                This replaces all date created- and date modified-tag-content in all .ocmsfiles and .ocmsfolders if content doesn't
-                start with a dollar sign
-            -->
-            <id>repair-manifest</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.google.code.maven-replacer-plugin</groupId>
-                        <artifactId>replacer</artifactId>
-                        <version>1.5.3</version>
-                        <executions>
-                            <execution>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>replace</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <includes>
-                                <include>${basedir}/src/main/manifest/**/*.ocmsfolder.xml</include>
-                                <include>${basedir}/src/main/manifest/**/*.ocmsfile.xml</include>
-                            </includes>
-                            <replacements>
-                                <replacement>
-                                    <token><![CDATA[<datecreated>[^$].+</datecreated>]]></token>
-                                    <value><![CDATA[<datecreated>\${datecreated}</datecreated>]]></value>
-                                </replacement>
-                                <replacement>
-                                    <token><![CDATA[<datelastmodified>[^$].+</datelastmodified>]]></token>
-                                    <value><![CDATA[<datelastmodified>\${datelastmodified}</datelastmodified>]]></value>
-                                </replacement>
-                            </replacements>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
     </profiles>
 
     <build>

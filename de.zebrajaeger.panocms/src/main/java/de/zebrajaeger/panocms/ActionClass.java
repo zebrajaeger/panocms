@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Lars Brandt on 20.12.2016
  */
+@SuppressWarnings("unused")
 public class ActionClass extends A_CmsModuleAction {
 
     private static final Logger LOG = LoggerFactory.getLogger(ActionClass.class);
