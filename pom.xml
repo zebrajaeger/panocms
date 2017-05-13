@@ -18,7 +18,7 @@
         <!-- Override this in sub-modules -->
         <project.parent.basedir>${basedir}/</project.parent.basedir>
         <!-- Dependency versions -->
-        <version.cmsshell-maven-plugin>1.2.0</version.cmsshell-maven-plugin>
+        <version.cmsshell-maven-plugin>1.4.0</version.cmsshell-maven-plugin>
         <version.opencms-maven-plugin>2.1</version.opencms-maven-plugin>
         <version.org.opencms.opencms-core>10.5.1</version.org.opencms.opencms-core>
     </properties>

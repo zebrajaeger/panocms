@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>panocms-module</artifactId>
+    <artifactId>de.zebrajaeger.panocms</artifactId>
     <packaging>opencms-module</packaging>
 
     <name>Panocms module</name>

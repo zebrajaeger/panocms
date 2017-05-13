@@ -1,7 +1,7 @@
 <export>
     <info>
         <creator>Admin</creator>
-        <opencms_version>10.0.1</opencms_version>
+        <opencms_version>10.5.1</opencms_version>
         <createdate>${createdate}</createdate>
         <infoproject>Offline</infoproject>
         <export_version>10</export_version>
