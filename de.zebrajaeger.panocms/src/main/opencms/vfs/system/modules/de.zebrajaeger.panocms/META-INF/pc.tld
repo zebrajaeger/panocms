@@ -46,6 +46,31 @@
         </attribute>
     </tag>
 
+    <tag>
+        <description>
+            Generates an external link from internal Link by using CmsLinkManager. Also a
+            version could be added to a link to solve caching problems.
+        </description>
+        <name>linkExternal</name>
+        <tag-class>de.zebrajaeger.panocms.util.externallink.JspTagToExternalLink</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>Flag link as absolute path link</description>
+            <name>absolute</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                If true a version postfix will be generated from last modified date and
+                added as parameter
+            </description>
+            <name>version</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
     <!-- ======================================== TAG-FILES ======================================== -->
 
     <!-- ======================================== FUNCTIONS ======================================== -->
