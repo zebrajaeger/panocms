@@ -1,0 +1,40 @@
+<export>
+    <info>
+        <creator>Admin</creator>
+        <opencms_version>10.0.1</opencms_version>
+        <createdate>${createdate}</createdate>
+        <infoproject>Offline</infoproject>
+        <export_version>10</export_version>
+    </info>
+    <module>
+        <name>de.zebrajaeger.panocms</name>
+        <nicename><![CDATA[Panocms]]></nicename>
+        <group>Panocms</group>
+        <class>de.zebrajaeger.panocms.ActionClass</class>
+        <export-mode name="default"/>
+        <description/>
+        <version>${moduleversion}</version>
+        <authorname><![CDATA[Lars Brandt]]></authorname>
+        <authoremail><![CDATA[zebrajaeger@github.com]]></authoremail>
+        <datecreated/>
+        <userinstalled/>
+        <dateinstalled/>
+        <dependencies/>
+        <exportpoints>
+            <exportpoint uri="/system/modules/de.zebrajaeger.panocms/META-INF/pc.tld" destination="WEB-INF/pc.tld"/>
+            <exportpoint uri="/system/modules/de.zebrajaeger.panocms/META-INF/template.tld" destination="WEB-INF/template.tld"/>
+            <exportpoint uri="/system/modules/de.zebrajaeger.panocms/META-INF/tags/" destination="META-INF/tags/"/>
+            <exportpoint uri="/system/modules/de.zebrajaeger.panocms/lib/" destination="WEB-INF/lib/"/>
+        </exportpoints>
+        <resources>
+            <resource uri="/system/modules/de.zebrajaeger.panocms/"/>
+        </resources>
+        <excluderesources/>
+        <parameters/>
+        <resourcetypes>
+        </resourcetypes>
+        <explorertypes>
+        </explorertypes>
+    </module>
+    <files/>
+</export>
