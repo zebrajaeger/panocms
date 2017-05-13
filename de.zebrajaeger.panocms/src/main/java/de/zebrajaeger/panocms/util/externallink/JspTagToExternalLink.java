@@ -1,4 +1,4 @@
-package com.lv.opencms.basis.util.externallink;
+package de.zebrajaeger.panocms.util.externallink;
 
 import org.opencms.file.CmsObject;
 import org.opencms.flex.CmsFlexController;

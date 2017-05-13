@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="lv" uri="http://lv.com/taglib/basis" %>
+<%@ taglib prefix="pc" uri="http://panocms.zebrajaeger.de/taglib/pc" %>
 
 <%--@elvariable id="cms" type="org.opencms.jsp.util.CmsJspStandardContextBean"--%>
 
@@ -15,7 +15,6 @@
 
     <meta name="description" content="${cms.vfs.property[cms.requestContext.uri]['Description']}" />
     <meta name="keywords" content="${cms.vfs.property[cms.requestContext.uri]['Keywords']}" />
-
 
             <meta name="application-name" content="Panocms">
             <meta name="msapplication-tooltip" content="Panocms">
@@ -32,13 +31,13 @@
 
     <c:if test="${cms.isonline}>
             <link rel="stylesheet"
-                  href="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/bower.min.css</lv:linkExternal>">
+                  href="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/bower.min.css</pc:linkExternal>">
             <link rel="stylesheet"
-                  href="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/vendor.min.css</lv:linkExternal>">
+                  href="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/vendor.min.css</pc:linkExternal>">
             <link rel="stylesheet"
-                  href="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/app.min.css</lv:linkExternal>">
-        <script src="<lv:linkExternal absolute="false">/system/modules/com.lv.opencms.basis/resources/js/bower.min.js</lv:linkExternal>"></script>
-        <script src="<lv:linkExternal absolute="false">/system/modules/com.lv.opencms.basis/resources/js/app.min.js</lv:linkExternal>"></script>
+                  href="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/app.min.css</pc:linkExternal>">
+        <script src="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/bower.min.js</pc:linkExternal>"></script>
+        <script src="<lpc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/app.min.js</lpc:linkExternal>"></script>
 
 	</c:if>
 
@@ -49,8 +48,8 @@
                   href="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/vendor.css</lv:linkExternal>">
             <link rel="stylesheet"
                   href="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/app.css</lv:linkExternal>">
-        <script src="<lv:linkExternal absolute="false">/system/modules/com.lv.opencms.basis/resources/js/bower.js</lv:linkExternal>"></script>
-        <script src="<lv:linkExternal absolute="false">/system/modules/com.lv.opencms.basis/resources/js/app.js</lv:linkExternal>"></script>
+        <script src="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/bower.js</lv:linkExternal>"></script>
+        <script src="<lv:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/app.js</lv:linkExternal>"></script>
 
 	</c:if>
 </head>

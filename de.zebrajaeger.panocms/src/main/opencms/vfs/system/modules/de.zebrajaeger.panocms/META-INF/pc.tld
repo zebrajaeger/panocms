@@ -13,34 +13,9 @@
     <!-- ======================================== TAGS ======================================== -->
     <tag>
         <name>buildInfo</name>
-        <tag-class>com.lv.opencms.basis.buildversion.JspTagProjectInfo</tag-class>
+        <tag-class>de.zebrajaeger.panocms.buildversion.JspTagProjectInfo</tag-class>
         <body-content>empty</body-content>
     </tag>
-
-    <tag>
-        <name>true</name>
-        <tag-class>com.lv.opencms.basis.util.decision.JspTagTrue</tag-class>
-        <body-content>scriptless</body-content>
-    </tag>
-
-    <tag>
-        <name>false</name>
-        <tag-class>com.lv.opencms.basis.util.decision.JspTagFalse</tag-class>
-        <body-content>scriptless</body-content>
-    </tag>
-
-    <tag>
-        <name>if</name>
-        <tag-class>com.lv.opencms.basis.util.decision.JspTagIf</tag-class>
-        <body-content>scriptless</body-content>
-        <attribute>
-            <name>test</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-            <type>java.lang.String</type>
-        </attribute>
-    </tag>
-
 
     <tag>
         <description>
@@ -48,7 +23,7 @@
             In difference to cms:property tag 'title' property is fixed and it logs out a warning if resource could not be found.
         </description>
         <name>title</name>
-        <tag-class>com.lv.opencms.basis.site.JspTagTitle</tag-class>
+        <tag-class>de.zebrajaeger.panocms.util.JspTagTitle</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <description>
@@ -71,18 +46,17 @@
         </attribute>
     </tag>
 
-
     <!-- ======================================== TAG-FILES ======================================== -->
 
     <!-- ======================================== FUNCTIONS ======================================== -->
     <function>
         <name>debug</name>
-        <function-class>com.lv.opencms.basis.util.Debug</function-class>
+        <function-class>de.zebrajaeger.panocms.util.Debug</function-class>
         <function-signature>void debug(java.lang.Object)</function-signature>
     </function>
     <function>
         <name>debug2</name>
-        <function-class>com.lv.opencms.basis.util.Debug</function-class>
+        <function-class>de.zebrajaeger.panocms.util.Debug</function-class>
         <function-signature>void debug2(java.lang.Object,java.lang.Object)</function-signature>
     </function>
 
