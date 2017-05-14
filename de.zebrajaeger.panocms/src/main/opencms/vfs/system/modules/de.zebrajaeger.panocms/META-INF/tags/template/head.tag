@@ -10,6 +10,36 @@
 
 <head>
     <cms:enable-ade/>
+        <title>${cms.title}</title>
+        <meta name="description" content="${cms.vfs.property[cms.requestContext.uri]['Description']}" />
+        <meta name="keywords" content="${cms.vfs.property[cms.requestContext.uri]['Keywords']}" />
+
+        <link rel="stylesheet" type="text/css" media="all"
+              href="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/style.css</pc:linkExternal>"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <link rel="apple-touch-icon-precomposed" sizes="114x114"
+              href="<cms:link>/system/modules/de.zebrajaeger.panocms/resources/images/apple-touch-icon.png</cms:link>">
+        <link rel="shortcut icon" type="image/png"
+              href="<cms:link>/system/modules/de.zebrajaeger.panocms/resources/images/favicon.png</cms:link>">
+        <link rel="icon" type="image/png"
+              href="<cms:link>/system/modules/de.zebrajaeger.panocms/resources/images/favicon.png</cms:link>"
+              sizes="32x32">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" media="all"
+              href="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/default.css</pc:linkExternal>">
+        <link rel="stylesheet" type="text/css" media="all"
+              href="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/css/nivo-slider.css</pc:linkExternal>">
+        <!-- JS -->
+        <script src="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/jquery-1.9.0.min.js</pc:linkExternal>"></script>
+        <script src="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/jquery.nivo.slider.js</pc:linkExternal>"></script>
+        <script type="text/javascript">
+            $(window).load(function() {
+                $('#slider').nivoSlider();
+            });
+        </script>
+<%--
     <meta charset="utf-8">
     <title>${cms.title}</title>
 
@@ -52,4 +82,5 @@
         <script src="<pc:linkExternal absolute="false">/system/modules/de.zebrajaeger.panocms/resources/js/app.js</pc:linkExternal>"></script>
 
 	</c:if>
+--%>
 </head>

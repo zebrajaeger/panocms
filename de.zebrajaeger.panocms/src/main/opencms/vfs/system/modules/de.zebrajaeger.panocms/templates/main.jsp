@@ -15,9 +15,8 @@
     <template:head/>
     <body>
         <template:header/>
-
-        <cms:container name="content"/>
-
+        <cms:container name="banner">Banner</cms:container>
+        <cms:container name="content">Content</cms:container>
         <template:footer/>
     </body>
 </html>

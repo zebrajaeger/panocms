@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xsd:include schemaLocation="opencms://opencms-xmlcontent.xsd"/>
+
+    <xsd:element name="WebLinks" type="OpenCmsWebLinks"/>
+
+    <xsd:complexType name="OpenCmsWebLinks">
+        <xsd:sequence>
+            <xsd:element name="WebLink" type="OpenCmsWebLink" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="OpenCmsWebLink">
+        <xsd:sequence>
+            <xsd:element name="Label" type="OpenCmsString"/>
+            <xsd:element name="Link" type="OpenCmsVarLink"/>
+            <xsd:element name="TargetBlank" type="OpenCmsBoolean"/>
+        </xsd:sequence>
+        <xsd:attribute name="language" type="OpenCmsLocale" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:annotation>
+        <xsd:appinfo>
+            <resourcebundles>
+                <propertybundle name="com.lv.opencms.basis.workplace"/>
+            </resourcebundles>
+            <defaults>
+                <default element="TargetBlank" value="false"/>
+            </defaults>
+            <validationrules>
+                <rule element="Label" regex="!^\s*$" message="${key.error.empty}"/>
+                <rule element="Link" regex="!^\s*$" message="${key.error.empty}"/>
+            </validationrules>
+            <relations/>
+            <searchsettings containerPageOnly="true">
+                <searchsetting element="Label" searchcontent="false"/>
+                <searchsetting element="Link" searchcontent="false"/>
+                <searchsetting element="TargetBlank" searchcontent="false"/>
+            </searchsettings>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+</xsd:schema>

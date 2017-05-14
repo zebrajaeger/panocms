@@ -32,8 +32,14 @@
         <excluderesources/>
         <parameters/>
         <resourcetypes>
+            <type class="org.opencms.file.types.CmsResourceTypeXmlContent" name="banner" id="100000">
+                <param name="schema">/system/modules/de.zebrajaeger.panocms/ce/banner/banner.xsd</param>
+            </type>
         </resourcetypes>
         <explorertypes>
+            <explorertype name="banner" key="fileicon.banner" icon="default.png" bigicon="ldefault-big.png" reference="xmlcontent">
+                <newresource page="structurecontent" uri="newresource_xmlcontent.jsp?newresourcetype=banner" order="10" autosetnavigation="false" autosettitle="false" info="desc.banner" key="title.banner"/>
+            </explorertype>
         </explorertypes>
     </module>
     <files/>
